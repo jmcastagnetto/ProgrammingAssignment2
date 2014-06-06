@@ -1,9 +1,8 @@
-# A function that defines an special "matrix" that can cache its inverse
-# and another that calculates returns the inverse of the special "matrix"
+# This file defines:
+# - a function that defines an special "matrix" that can cache its inverse
+# - a function that calculates the inverse of the special "matrix"
 
-# Defines a special "matrix" capable of caching its own
-# inverse
-
+# Defines a special "matrix" capable of caching its own inverse
 makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL
     set <- function(w) {
@@ -13,6 +12,7 @@ makeCacheMatrix <- function(x = matrix()) {
     get <- function() {
         return(x)
     }
+    # cache the inverse
     setinverse <- function(inverse) {
         inv <<- inverse
     }
@@ -25,7 +25,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-# returns the inverse of an special "matrix" object
+# Returns the inverse of the special "matrix"
 # indicating whether the result has been cached
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -41,7 +41,7 @@ cacheSolve <- function(x, ...) {
     }
 }
 
-## Test the functions defined above
+## Testing the functions defined above
 
 set.seed(13579)
 
