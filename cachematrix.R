@@ -35,7 +35,7 @@ cacheSolve <- function(x, ...) {
         return(inv)
     } else {
         mat <- x$get()
-        inv <- solve(mat)
+        inv <- solve(mat, ...)
         x$setinverse(inv)
         return(inv)
     }
@@ -57,7 +57,7 @@ all.equal(round(invcmat %*% mat,1), diag(3))
 # now, we will use a 100x100 matrix
 mat2 <- matrix(sample(1:4, 10000,replace=TRUE), nrow=100, ncol=100)
 cmat2 <- makeCacheMatrix(mat2)
-invcmat2 <- cacheSolve(cmat2)
+invcmat2 <- cacheSolve(cmat2, tol=1e-5)
 # get the cached value
 tmp <- cacheSolve(cmat2)
 # compare with the 100x100 identity matrix
